@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: front-row
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
