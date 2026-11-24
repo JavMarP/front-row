@@ -3,3 +3,7 @@ spring:
     name: front-row
   liquibase:
     change-log: classpath:/db/changelog/changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false

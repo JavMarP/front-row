@@ -29,7 +29,15 @@ Resilience4j, Nginx.
 
 ## How to run
 
-TODO
+Copy `.env.example` to `.env` and set the database values, then start MySQL with
+`docker compose up -d`. Activate the `dev` Spring profile when running the
+application, for example by setting `SPRING_PROFILES_ACTIVE=dev` in your IDE
+or shell.
+
+The application also needs `DB_NAME`, `DB_USER`, and `DB_PASSWORD` in its
+environment; set them to the same values used in `.env`. Optionally set
+`DB_PORT` if you changed the host port (it defaults to `3306`). Docker Compose
+reads `.env`, but Spring Boot does not load that file automatically.
 
 ## Running tests
 
@@ -38,6 +46,8 @@ TODO
 ```
 
 Integration tests start a MySQL container automatically via Testcontainers, so Docker must be running.
+The existing integration test activates the `test` profile; use `@ActiveProfiles("test")`
+on other tests that need its settings.
 
 ## Roadmap
 

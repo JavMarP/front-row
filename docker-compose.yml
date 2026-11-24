@@ -1,8 +1,8 @@
+name: front-row
 services:
   mysql:
     image: mysql:8.4
     container_name: front-row-mysql
-    restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
@@ -21,3 +21,6 @@ services:
 
 volumes:
   mysql-data:
+
+#healthcheck should be useful further down the road
+#name added in case the app would be renamed and volume would get lost
